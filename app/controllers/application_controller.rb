@@ -7,10 +7,6 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-
-
-#CREATE
-
   get '/' do
 
   end
@@ -25,8 +21,6 @@ class ApplicationController < Sinatra::Base
     redirect to '/posts'
   end
 
-#READ
-
   get '/posts' do
     @posts = Post.all
 
@@ -40,8 +34,6 @@ class ApplicationController < Sinatra::Base
     erb :show
 
   end
-
-#UPDATE
 
  get '/posts/:id/edit' do
    @post = Post.find_by_id(params[:id])
@@ -60,7 +52,6 @@ class ApplicationController < Sinatra::Base
 
  end
 
-#DELETE
 
  delete '/posts/:id/delete' do
     post = Post.find(params[:id])
@@ -68,5 +59,4 @@ class ApplicationController < Sinatra::Base
     
     erb :delete
  end
-
 end
